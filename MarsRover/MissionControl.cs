@@ -16,6 +16,11 @@
         catch (SandstormException ex) // tjek
         {
             PrintError(ex);
+        } catch (SunsetException ex)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(ex.Message);
+            Console.ForegroundColor = ConsoleColor.White;
         }
         catch (ArgumentOutOfRangeException ex) // tjek
         {

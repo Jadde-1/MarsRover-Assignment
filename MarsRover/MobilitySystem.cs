@@ -1,6 +1,6 @@
 ﻿public class MobilitySystem
 {
-    public int BatteryLevel { get; set; } = 20;
+    public int BatteryLevel { get; set; } = 5;
 
     public void Drive(int distance)
     {
@@ -29,6 +29,28 @@
 
         BatteryLevel -= depth;
         Console.WriteLine("        Mobility: Boring succesfuld. Strøm tilbage: " + BatteryLevel);
+    }
+
+    public void Recharge()
+    {
+        Random rand = new Random();
+        while (BatteryLevel < 100)
+        {
+            if (rand.Next(0, 20) == 0)
+            { 
+                throw new SunsetException("Advarsel fra Mars: Advarsel fra Mars: Charing failed sun went down Battery:" + BatteryLevel);
+            }
+            System.Threading.Thread.Sleep(1000);
+            BatteryLevel += 10;
+            if (BatteryLevel > 100)
+            {
+                BatteryLevel = 100;
+            }
+            Console.WriteLine("Recharging - Current power level:" + BatteryLevel);
+        }
+
+        Console.WriteLine("Rover fully Charged");
+
     }
 
 

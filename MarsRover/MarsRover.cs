@@ -4,7 +4,7 @@
 
     public void ProcessCommand(int option, int distance)
     {
-        if (option < 0 || option > 1)
+        if (option < 0 || option > 2)
         {
             throw new ArgumentOutOfRangeException("This rover only have 0/1 as an option");
         }
@@ -15,6 +15,9 @@
                 break;
             case 1:
                 DrillForSampels(distance); 
+                break;
+            case 2:
+                Recharge();
                 break;
         }
         
@@ -66,6 +69,11 @@
         //    Console.WriteLine("Unknown error accured");
         //}
         
+    }
+
+    public void Recharge()
+    {
+        mobility.Recharge();
     }
 
     private void ScanWether()
