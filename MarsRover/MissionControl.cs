@@ -1,12 +1,45 @@
 ﻿public class MissionControl
 {
+   
+    int distance = 20;
     public void ExecuteMission()
     {
         Console.WriteLine("Mission Control: Starter dags-sekvens.");
         CommsLink earthComms = new CommsLink();
+        Console.WriteLine("one or two");
+        try
+        {
+            int option = int.Parse(Console.ReadLine());
+            earthComms.TransmitToSpace(option, distance);
+            Console.WriteLine("Mission Control: Sekvens fuldført uden fejl.");
+        }
+        catch (SandstormException ex) // tjek
+        {
+            PrintError(ex);
+        }
+        catch (ArgumentOutOfRangeException ex) // tjek
+        {
+            PrintError(ex);
+        }
+        catch (InvalidOperationException ex) // tjek
+        {
+            PrintError(ex);
+        }
+        catch (Exception ex)
+        {
+            PrintError(ex);
+        } finally // Tjek
+        {
+            Console.WriteLine("Afbryder radioforbindelse til Ares-1 for i dag.");
+        }
 
-        earthComms.TransmitToSpace(50); // Vi beder roveren køre 50 meter
+       
+    }
 
-        Console.WriteLine("Mission Control: Sekvens fuldført uden fejl.");
+    private void PrintError(Exception ex)
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine(ex.Message);
+        Console.ForegroundColor = ConsoleColor.White;
     }
 }
