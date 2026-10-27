@@ -11,6 +11,7 @@
             throw new InvalidOperationException("Kritisk motorfejl: Ikke nok strøm til turen!");
         }
 
+        // Som standard har den for lidt strøm
         BatteryLevel -= distance;
         Console.WriteLine("        Mobility: Kørsel succesfuld. Strøm tilbage: " + BatteryLevel);
     }
