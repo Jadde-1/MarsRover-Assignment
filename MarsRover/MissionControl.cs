@@ -2,14 +2,16 @@
 {
    
     int distance = 20;
+    int option = 0;
+    CommsLink earthComms = new CommsLink();
     public void ExecuteMission()
     {
         Console.WriteLine("Mission Control: Starter dags-sekvens.");
-        CommsLink earthComms = new CommsLink();
-        Console.WriteLine("one or two");
+        
+        Console.WriteLine("0(Drive),1(Drill),2(Recharge)");
         try
         {
-            int option = int.Parse(Console.ReadLine());
+            option = int.Parse(Console.ReadLine());
             earthComms.TransmitToSpace(option, distance);
             Console.WriteLine("Mission Control: Sekvens fuldført uden fejl.");
         }
@@ -36,6 +38,7 @@
         } finally // Tjek
         {
             Console.WriteLine("Afbryder radioforbindelse til Ares-1 for i dag.");
+            ExecuteMission();
         }
 
        

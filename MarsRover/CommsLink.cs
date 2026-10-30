@@ -1,9 +1,10 @@
 ﻿public class CommsLink
 {
+    DeepSpaceNetwork dsn = new DeepSpaceNetwork();
     public void TransmitToSpace(int option, int distance)
     {
         Console.WriteLine("  Earth Comms: Krypterer kommando...");
-        DeepSpaceNetwork dsn = new DeepSpaceNetwork();
+        
 
         
         dsn.RelaySignal(option,distance);

@@ -1,9 +1,10 @@
 ﻿public class DeepSpaceNetwork
 {
+    MarsRover ares = new MarsRover();
     public void RelaySignal(int option, int distance)
     {
         Console.WriteLine("    DSN Satellite: Modtager signal... videresender til Mars.");
-        MarsRover ares = new MarsRover();
+        
 
         ares.ProcessCommand(option,distance);
 
