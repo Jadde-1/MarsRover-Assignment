@@ -32,6 +32,10 @@
         {
             PrintError(ex);
         }
+        catch (NoSampelFoundException ex)
+        {
+            PrintError(ex);
+        }
         catch (Exception ex)
         {
             PrintError(ex);
